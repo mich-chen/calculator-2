@@ -21,13 +21,22 @@ from arithmetic import (add, subtract, multiply, divide, square, cube,
 
             (...etc.)"""
 
-def tokenize(string):
+def tokenize(input_string):
     """ Tokenizes a string into a list """
 
-    tokens = string.split(' ')
+    token_string = string.split(' ')
     # split string at spaces and store the list into token_string
 
-    return tokens
+    return token_string
 
 
 while True:
+    # prompt user input
+    print('Write your equation in prefix notation and we\'ll solve it for you!')
+    string = input('Enter equation your equation >> ')
+    tokens = tokenize(string)
+    print(tokens)
+    break
+    
+
+
