@@ -29,14 +29,31 @@ def tokenize(input_string):
 
     return token_string
 
+# prompt user input
+print('''Write your equation in prefix notation and we\'ll solve it for you! 
+Please use +, -, *, /, square, cube, pow, or mod for prefix notation.
+Press q to exit.\n\n''')
 
 while True:
-    # prompt user input
-    print('Write your equation in prefix notation and we\'ll solve it for you!')
+    
     string = input('Enter equation your equation >> ')
     tokens = tokenize(string)
-    print(tokens)
-    break
-    
+    # tokens is now a list of strings 
+    if tokens[0] == 'q':
+        exit()
+    else:
+        # determine which function to call based on 1st token
+        num1 = int(tokens[1])
+        num2 = int(tokens[2])
+        # changed the strings into integers and assigned to num1 and num2
+        if tokens[0] == '+':
+            print(add(num1, num2))
+
+
+
+
+
+
+
 
 
