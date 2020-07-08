@@ -20,3 +20,14 @@ from arithmetic import (add, subtract, multiply, divide, square, cube,
                   call the power function with the other two tokens
 
             (...etc.)"""
+
+def tokenize(string):
+    """ Tokenizes a string into a list """
+
+    tokens = string.split(' ')
+    # split string at spaces and store the list into token_string
+
+    return tokens
+
+
+while True:
