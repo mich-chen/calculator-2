@@ -22,6 +22,13 @@ from arithmetic import (add, subtract, multiply, divide, square, cube,
             (...etc.)"""
 
 
+
+def integered_nums(str_lst):
+    """ converts string elements in a list into integers and returns a list"""
+
+    num_lst = [int(str_lst[i]) for i in range(1, len(str_lst))]
+    return (num_lst)
+
 # prompt user input
 print('''Write your equation in prefix notation and we\'ll solve it for you! 
 Please use +, -, *, /, square, cube, pow, or mod for prefix notation.
@@ -32,40 +39,50 @@ def calc():
 
     while True:
         
-        string = input('Enter equation your equation >> ')
+        string = (input('Enter equation your equation >> '))
         tokens = string.split(' ')
-        # tokens is now a list of strings 
+        number_lst = integered_nums(tokens)
+        operand = tokens[0]
+
         if tokens[0] == 'q':
             exit()
-        elif len(tokens) > 2:
+
+        if len(number_lst) > 1:
             # determine which function to call if user input gave two numbers
-            num1 = int(tokens[1])
-            num2 = int(tokens[2])
+            """num1 = int(tokens[1])
+            num2 = int(tokens[2])"""
 
             # changed the strings into integers and assigned to num1 and num2
-            if tokens[0] == '+':
-                print(add(num1, num2))
-            if tokens[0] == '-':
-                print(subtract(num1, num2))
-            if tokens[0] == '*':
-                print(multiply(num1, num2))
-            if tokens[0] == '/':
-                print(divide(num1, num2))
-            if tokens[0] == 'pow':
-                print(power(num1, num2))
+            if operand == '+':
+                print(add(number_lst[0], number_lst[1]))
+            if operand == '-':
+                print(subtract(number_lst[0], number_lst[1]))
+            if operand == '*':
+                print(multiply(number_lst[0], number_lst[1]))
+            if operand == '/':
+                print(divide(number_lst[0], number_lst[1]))
+            if operand == 'pow':
+                print(power(number_lst[0], number_lst[1]))
             if tokens[0] == 'mod':
-                print(mod(num1, num2))
+                print(mod(number_lst[0], number_lst[1]))
 
         else:
-            num1 = int(tokens[1])
 
-            if tokens[0] == 'square':
-                print(square(num1))
-            if tokens[0] == 'cube':
-                print(cube(num1))
+            if operand == 'square':
+                print(square(number_lst[0]))
+            if operand == 'cube':
+                print(cube(number_lst[0]))
             
 
 calc()
+
+
+    
+
+
+
+
+
 
 
 
